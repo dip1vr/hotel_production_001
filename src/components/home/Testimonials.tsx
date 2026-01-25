@@ -119,7 +119,7 @@ export function Testimonials() {
                             variants={cardVariants}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-50px" }}
+                            viewport={{ once: true, margin: "-50px", amount: 0.3 }}
                             className="relative bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 pt-12"
                         >
                             {/* Floating Quote Icon */}

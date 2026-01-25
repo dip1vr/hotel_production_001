@@ -13,7 +13,7 @@ export function DiningSection() {
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: true, amount: 0.5 }}
                         className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-orange-100/80 text-orange-600 text-sm font-medium mb-6"
                     >
                         <Utensils className="w-4 h-4" />

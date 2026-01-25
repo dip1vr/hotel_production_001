@@ -95,7 +95,7 @@ export function RoomsSection() {
                             key={room.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.3 }}
                             transition={{ delay: index * 0.1 }}
                             className="group bg-white rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col border border-slate-100"
                         >
