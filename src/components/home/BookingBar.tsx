@@ -62,6 +62,7 @@ export function BookingBar() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            id="booking-bar"
             className="relative z-30 mt-4 md:-mt-24 mb-12 md:mb-20 px-4"
         >
             <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-3xl md:rounded-full shadow-2xl shadow-slate-200/50 p-4 md:p-3 md:pl-8 md:pr-3 flex flex-col md:flex-row items-center gap-4 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100 border border-white/50 ring-1 ring-slate-100 transition-all duration-300">
@@ -123,7 +124,7 @@ export function BookingBar() {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                 transition={{ duration: 0.15 }}
-                                className="absolute top-[120%] left-0 md:-left-4 right-0 md:w-80 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-4 z-50 overflow-hidden"
+                                className="absolute top-[120%] left-0 md:-left-4 right-0 md:right-auto md:w-80 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-4 z-50 overflow-hidden"
                             >
                                 <div className="space-y-4">
                                     {/* Adults Row */}

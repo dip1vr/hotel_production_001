@@ -6,7 +6,7 @@ import { Star, Award, ChevronDown } from "lucide-react";
 
 export function Hero() {
     return (
-        <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <div className="relative min-h-screen w-full overflow-hidden flex items-start md:items-center justify-center">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <div
@@ -19,7 +19,7 @@ export function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center text-white pt-20">
+            <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center text-white pt-28 pb-12 md:pb-0 md:pt-32">
 
                 {/* Badge */}
                 <motion.div
@@ -37,7 +37,7 @@ export function Hero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-4 drop-shadow-2xl tracking-tight"
+                    className="font-serif text-4xl md:text-7xl lg:text-8xl font-bold mb-4 drop-shadow-2xl tracking-tight"
                 >
                     Shyam Heritage <span className="block mt-2">Palace</span>
                 </motion.h1>
@@ -46,11 +46,22 @@ export function Hero() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
+                    transition={{ duration: 0.6, delay: 0.4, staggerChildren: 0.1 }}
                     className="flex items-center gap-1 mb-6"
                 >
                     {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 fill-primary text-primary" />
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0, rotate: -72 }}
+                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.4 + (i * 0.1), // Manual staggering to ensure it starts after container
+                                type: "spring", stiffness: 200
+                            }}
+                        >
+                            <Star className="w-6 h-6 fill-primary text-primary" />
+                        </motion.div>
                     ))}
                 </motion.div>
 
@@ -80,10 +91,19 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.7 }}
                     className="flex flex-col sm:flex-row gap-4 mb-16"
                 >
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white min-w-[200px] h-14 text-lg rounded-xl shadow-lg shadow-primary/20">
+                    <Button
+                        size="lg"
+                        className="bg-primary hover:bg-primary/90 text-white min-w-[200px] h-14 text-lg rounded-xl shadow-lg shadow-primary/20"
+                        onClick={() => document.getElementById('booking-bar')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         Book Your Stay
                     </Button>
-                    <Button size="lg" variant="outline" className="border-white/50 bg-white/5 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white min-w-[200px] h-14 text-lg rounded-xl">
+                    <Button
+                        size="lg"
+                        variant="outline"
+                        className="border-white/50 bg-white/5 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white min-w-[200px] h-14 text-lg rounded-xl"
+                        onClick={() => document.getElementById('rooms')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
                         Explore Rooms
                     </Button>
                 </motion.div>
@@ -93,7 +113,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.9 }}
-                    className="grid grid-cols-3 gap-6 w-full max-w-4xl"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl"
                 >
                     {[
                         { label: "Luxury Rooms", value: "50+" },

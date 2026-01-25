@@ -30,6 +30,52 @@ const reviews = [
     }
 ];
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut",
+            when: "beforeChildren", // Finish card animation before starting children
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const iconVariants = {
+    hidden: { scale: 0, opacity: 0, rotate: -45 },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        rotate: 0,
+        transition: {
+            type: "spring",
+            stiffness: 200,
+            damping: 15
+        }
+    }
+};
+
+const starsContainerVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.1 }
+    }
+};
+
+const starVariants = {
+    hidden: { opacity: 0, scale: 0, rotate: -72 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        rotate: 0,
+        transition: { type: "spring", stiffness: 300, damping: 20 }
+    }
+};
+
 export function Testimonials() {
     return (
         <section id="reviews" className="py-24 bg-orange-50/30">
@@ -70,23 +116,31 @@ export function Testimonials() {
                     {reviews.map((review, index) => (
                         <motion.div
                             key={review.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            variants={cardVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-50px" }}
                             className="relative bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-300 pt-12"
                         >
                             {/* Floating Quote Icon */}
-                            <div className="absolute -top-6 -left-2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white shadow-lg border-4 border-white">
+                            <motion.div
+                                variants={iconVariants}
+                                className="absolute -top-6 -left-2 w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white shadow-lg border-4 border-white"
+                            >
                                 <Quote className="w-6 h-6 fill-current" />
-                            </div>
+                            </motion.div>
 
                             {/* Stars */}
-                            <div className="flex gap-1 mb-6">
+                            <motion.div
+                                variants={starsContainerVariants}
+                                className="flex gap-1 mb-6"
+                            >
                                 {[...Array(review.rating)].map((_, i) => (
-                                    <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                                    <motion.div key={i} variants={starVariants}>
+                                        <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
+                                    </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
 
                             {/* Text */}
                             <blockquote className="text-slate-600 italic leading-relaxed mb-8 min-h-[100px]">

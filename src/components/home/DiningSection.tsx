@@ -71,7 +71,7 @@ export function DiningSection() {
                         </div>
 
                         {/* Floating Image 2 - Detail/Drink */}
-                        <div className="absolute top-12 -right-4 w-[35%] h-[30%] rounded-2xl overflow-hidden shadow-lg border-4 border-white z-30 hover:scale-105 transition-transform duration-500 hidden sm:block bg-gray-100">
+                        <div className="absolute top-12 right-2 md:-right-4 w-[35%] h-[30%] rounded-2xl overflow-hidden shadow-lg border-4 border-white z-30 hover:scale-105 transition-transform duration-500 bg-gray-100">
                             <Image
                                 src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1740&auto=format&fit=crop"
                                 alt="Signature Drink"
