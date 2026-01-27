@@ -113,7 +113,7 @@ export function Testimonials() {
 
                 {/* Reviews Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    {reviews.map((review, index) => (
+                    {reviews.map((review) => (
                         <motion.div
                             key={review.id}
                             variants={cardVariants}
@@ -144,7 +144,7 @@ export function Testimonials() {
 
                             {/* Text */}
                             <blockquote className="text-slate-600 italic leading-relaxed mb-8 min-h-[100px]">
-                                "{review.text}"
+                                &quot;{review.text}&quot;
                             </blockquote>
 
                             {/* Line */}

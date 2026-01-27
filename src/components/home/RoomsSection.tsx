@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Wifi, Tv, Coffee, Maximize2 } from "lucide-react";
-import { BookingBar } from "./BookingBar";
-import { RoomDetailsModal } from "./RoomDetailsModal";
-import { BookingModal } from "./BookingModal";
+import { Wifi, Tv, Coffee, Maximize2 } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const BookingBar = dynamic(() => import("./BookingBar").then((mod) => mod.BookingBar));
+const RoomDetailsModal = dynamic(() => import("./RoomDetailsModal").then((mod) => mod.RoomDetailsModal));
+const BookingModal = dynamic(() => import("./BookingModal").then((mod) => mod.BookingModal));
+import { RoomImageCarousel } from "./RoomImageCarousel";
 
 const rooms = [
     {
@@ -15,6 +17,11 @@ const rooms = [
         name: "Deluxe Room",
         price: "₹3,500",
         image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80"
+        ],
         description: "Elegant sanctuary with modern amenities and garden views.",
         size: "350 sq ft",
         amenities: [
@@ -28,6 +35,11 @@ const rooms = [
         name: "Super Deluxe",
         price: "₹5,500",
         image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80"
+        ],
         description: "Spacious luxury with a private balcony and premium bedding.",
         size: "450 sq ft",
         amenities: [
@@ -41,6 +53,11 @@ const rooms = [
         name: "Royal Suite",
         price: "₹8,500",
         image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1590490359683-65813c002fc5?auto=format&fit=crop&w=800&q=80"
+        ],
         description: "The epitome of heritage luxury with panoramic temple views.",
         size: "650 sq ft",
         amenities: [
@@ -99,16 +116,15 @@ export function RoomsSection() {
                             transition={{ delay: index * 0.1 }}
                             className="group bg-white rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col border border-slate-100"
                         >
-                            {/* Image */}
-                            <div className="relative h-72 overflow-hidden cursor-pointer" onClick={() => setSelectedRoom(room)}>
-                                <Image
-                                    src={room.image}
-                                    alt={room.name}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            {/* Image Carousel */}
+                            <div className="relative h-72">
+                                <RoomImageCarousel
+                                    images={room.images || [room.image]}
+                                    name={room.name}
+                                    className="h-full"
+                                    onClick={() => setSelectedRoom(room)}
                                 />
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm flex items-center gap-1">
+                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-sm flex items-center gap-1 pointer-events-none z-10">
                                     <Maximize2 className="w-3 h-3" /> {room.size}
                                 </div>
                             </div>

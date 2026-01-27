@@ -34,7 +34,7 @@ export function ContactSection() {
                         transition={{ delay: 0.2 }}
                         className="text-slate-600 text-lg"
                     >
-                        We're here to help make your stay memorable. Reach out to us anytime!
+                        We&apos;re here to help make your stay memorable. Reach out to us anytime!
                     </motion.p>
                 </div>
 
@@ -60,9 +60,9 @@ export function ContactSection() {
                                     <div>
                                         <h4 className="font-bold text-slate-900 mb-1">Address</h4>
                                         <p className="text-slate-600 leading-relaxed">
-                                            Near Khatu Shyam Ji Temple,<br />
-                                            Ringas Road, Sikar,<br />
-                                            Rajasthan, India - 332602
+                                            52, Bawan Bigha road,<br />
+                                            Behind Nagar Palika,<br />
+                                            Khatoo, Rajasthan - 332602
                                         </p>
                                     </div>
                                 </div>
@@ -76,8 +76,8 @@ export function ContactSection() {
                                         <div>
                                             <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
                                             <div className="text-slate-600 space-y-1">
-                                                <p>+91 98765 43210</p>
-                                                <p>+91 12345 67890</p>
+                                                <p>+91 99503 03198</p>
+                                                <p>01576231882</p>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@ export function ContactSection() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-slate-900 mb-1">Email</h4>
-                                            <p className="text-slate-600">info@shyamheritage.com</p>
+                                            <p className="text-slate-600">hotellordkrishna5@gmail.com</p>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@ export function ContactSection() {
                         {/* Right Side - Map Placeholder / Decorative Image */}
                         <div className="md:w-1/3 bg-orange-100 relative min-h-[300px] md:min-h-0">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3546.046162394593!2d75.39764531505364!3d27.37367898293126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c90b0e3340dcd%3A0xe54d3d750c182542!2sKhatu%20Shyam%20Ji%20Temple!5e0!3m2!1sen!2sin!4v1647845682121!5m2!1sen!2sin"
+                                src="https://maps.google.com/maps?q=Hotel+Lord+Krishna,+52,+Bawan+Bigha+road,+Behind+Nagar+Palika,+Khatoo,+Rajasthan+332602&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0, filter: "grayscale(20%) sepia(10%)" }}

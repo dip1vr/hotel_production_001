@@ -12,7 +12,7 @@ export function Hero() {
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
                     style={{
-                        backgroundImage: "url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop')",
+                        backgroundImage: "url('https://i.ibb.co/fzvVwnjt/Chat-GPT-Image-Jan-25-2026-07-22-31-PM.png')",
                     }}
                 />
                 <div className="absolute inset-0 bg-black/50" />
@@ -39,7 +39,7 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-serif text-4xl md:text-7xl lg:text-8xl font-bold mb-4 drop-shadow-2xl tracking-tight"
                 >
-                    Shyam Heritage <span className="block mt-2">Palace</span>
+                    Hotel Lord  <span className="block mt-2">Krishna</span>
                 </motion.h1>
 
                 {/* Stars */}

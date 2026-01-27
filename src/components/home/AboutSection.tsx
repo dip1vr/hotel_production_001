@@ -26,7 +26,7 @@ export function AboutSection() {
 
                         <div className="space-y-6 text-lg text-slate-600 leading-relaxed max-w-lg">
                             <p>
-                                <strong className="text-slate-900">Khatu Shyam Ji</strong>, revered as the incarnation of Barbarika, is the beacon of hope for millions. Pilgrims from across the world visit this holy land to seek his blessings, believing that a mere glimpse (Darshan) can alter one's destiny.
+                                <strong className="text-slate-900">Khatu Shyam Ji</strong>, revered as the incarnation of Barbarika, is the beacon of hope for millions. Pilgrims from across the world visit this holy land to seek his blessings, believing that a mere glimpse (Darshan) can alter one&apos;s destiny.
                             </p>
                             <p>
                                 Located just moments from the temple, <span className="text-orange-600 font-serif font-bold">Shyam Heritage Palace</span> serves as your spiritual oasis. We offer a serene retreat where you can prepare for your worship and relax in comfort after your prayers.
@@ -93,8 +93,8 @@ export function AboutSection() {
                                 </div>
                                 {/* Floating Badge */}
                                 <div className="p-4 bg-orange-600 rounded-2xl text-center text-white shadow-lg shadow-orange-200">
-                                    <div className="text-2xl font-bold">100m</div>
-                                    <div className="text-xs opacity-90">From Temple</div>
+                                    <div className="text-2xl font-bold">300m</div>
+                                    <div className="text-xs opacity-90">From Toran dwar</div>
                                 </div>
                             </div>
                         </div>

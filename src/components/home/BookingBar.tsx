@@ -23,13 +23,6 @@ export function BookingBar() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // Auto-adjust rooms based on adults (Max 3 adults per room)
-    useEffect(() => {
-        const requiredRooms = Math.ceil(adults / 3);
-        if (rooms < requiredRooms) {
-            setRooms(requiredRooms);
-        }
-    }, [adults]); // Only run when adults change to auto-increase. 
     // We don't auto-decrease rooms to avoid annoying the user if they want extra rooms, 
     // but we enforce the minimum in the decrement handler.
 
@@ -37,6 +30,12 @@ export function BookingBar() {
         const newAdults = adults + delta;
         if (newAdults >= 1) {
             setAdults(newAdults);
+
+            // Auto-increase rooms if needed (Max 3 adults per room)
+            const requiredRooms = Math.ceil(newAdults / 3);
+            if (rooms < requiredRooms) {
+                setRooms(requiredRooms);
+            }
         }
     };
 

@@ -40,15 +40,15 @@ export function Footer() {
                         <ul className="space-y-3 text-sm text-muted-foreground">
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-primary shrink-0" />
-                                <span>Near Khatu Shyam Ji Temple, Sikar, Rajasthan</span>
+                                <span>52, Bawan Bigha road, Behind Nagar Palika, Khatoo, Raj.</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                                <span>+91 98765 43210</span>
+                                <span>+91 99503 03198</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                                <span>info@shyamheritage.com</span>
+                                <span>hotellordkrishna5@gmail.com</span>
                             </li>
                         </ul>
                     </div>
@@ -57,7 +57,7 @@ export function Footer() {
                     <div>
                         <h3 className="font-serif font-bold text-lg mb-4">Follow Us</h3>
                         <div className="flex gap-4">
-                            <Link href="#" className="p-2 bg-background rounded-full hover:text-primary shadow-sm transition-all hover:-translate-y-1">
+                            <Link href="https://www.instagram.com/hotel_lord_krishna_0212?igsh=MTM1b3o3cm91NGoyZA==" className="p-2 bg-background rounded-full hover:text-primary shadow-sm transition-all hover:-translate-y-1">
                                 <Instagram className="w-5 h-5" />
                             </Link>
                             <Link href="#" className="p-2 bg-background rounded-full hover:text-primary shadow-sm transition-all hover:-translate-y-1">

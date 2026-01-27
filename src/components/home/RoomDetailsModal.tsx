@@ -1,18 +1,20 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Wifi, Tv, Coffee, Maximize2, Wind, Utensils, Check } from "lucide-react";
-import Image from "next/image";
+import { X, Wind, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import { RoomImageCarousel } from "./RoomImageCarousel";
 
 interface Room {
     id: number;
     name: string;
     price: string;
     image: string;
+    images?: string[];
     description: string;
     size: string;
-    amenities: { icon: any; label: string }[];
+    amenities: { icon: React.ElementType; label: string }[];
 }
 
 interface RoomDetailsModalProps {
@@ -24,12 +26,18 @@ interface RoomDetailsModalProps {
 export function RoomDetailsModal({ room, onClose, onBook }: RoomDetailsModalProps) {
     if (!room) return null;
 
+    const images = room.images || [room.image];
+
     // Extended amenities for the modal
     const extendedAmenities = [
         ...room.amenities,
         { icon: Wind, label: "Air Conditioning" },
         { icon: Utensils, label: "In-Room Dining" },
     ];
+
+    const handleBookClick = () => {
+        onBook();
+    };
 
     return (
         <AnimatePresence>
@@ -52,25 +60,23 @@ export function RoomDetailsModal({ room, onClose, onBook }: RoomDetailsModalProp
                         className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
                     >
                         <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl pointer-events-auto flex flex-col md:flex-row overflow-hidden">
-
-                            {/* Hero Image Section */}
+                            {/* ... Content ... */}
                             <div className="relative w-full md:w-1/2 h-64 md:h-auto bg-slate-100">
-                                <Image
-                                    src={room.image}
-                                    alt={room.name}
-                                    fill
-                                    className="object-cover"
+                                <RoomImageCarousel
+                                    images={images}
+                                    name={room.name}
+                                    className="h-full"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r pointer-events-none" />
 
                                 <button
                                     onClick={onClose}
-                                    className="absolute top-4 left-4 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-md transition-colors md:hidden"
+                                    className="absolute top-4 left-4 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-md transition-colors md:hidden z-10"
                                 >
                                     <X className="w-5 h-5" />
                                 </button>
 
-                                <div className="absolute bottom-6 left-6 text-white md:hidden">
+                                <div className="absolute bottom-6 left-6 text-white md:hidden pointer-events-none">
                                     <h3 className="font-serif text-3xl font-bold">{room.name}</h3>
                                     <p className="text-white/90 font-medium">{room.size} Ocean View</p>
                                 </div>
@@ -131,13 +137,14 @@ export function RoomDetailsModal({ room, onClose, onBook }: RoomDetailsModalProp
                                             <span className="text-sm text-slate-500 font-medium">/ night</span>
                                         </div>
                                     </div>
-                                    <Button onClick={onBook} size="lg" className="flex-1 bg-slate-900 hover:bg-orange-600 text-white rounded-xl h-14 text-lg shadow-lg hover:shadow-orange-200 transition-all">
+                                    <Button onClick={handleBookClick} size="lg" className="flex-1 bg-slate-900 hover:bg-orange-600 text-white rounded-xl h-14 text-lg shadow-lg hover:shadow-orange-200 transition-all">
                                         Book Now
                                     </Button>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
+
                 </>
             )}
         </AnimatePresence>

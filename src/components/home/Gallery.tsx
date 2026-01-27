@@ -40,9 +40,14 @@ const galleryImages = [
         alt: "Event Space"
     },
     {
-        src: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2070&auto=format&fit=crop",
+        src: "https://image2url.com/r2/default/images/1769353597206-134ac425-7159-48aa-be33-95847d98aefc.png",
         category: "Garden",
         alt: "Garden View"
+    },
+    {
+        src: "/gallery/reception.png",
+        category: "Interior",
+        alt: "Reception Area"
     }
 ];
 
@@ -50,8 +55,8 @@ export function Gallery() {
     return (
         <section id="gallery" className="py-24 bg-white relative overflow-hidden">
             {/* Decorative background visual */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-50/50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-50/50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -z-10 -translate-x-1/3 translate-y-1/2" />
 
             <div className="container mx-auto px-4">
 
